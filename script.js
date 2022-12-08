@@ -83,7 +83,7 @@ planetCardPictureContainer.addEventListener('click', () => {
 });
 
 planets.forEach((planet, index) => {
-//For every planet that is no the sun generate a rgb color
+//For every planet that is not the sun generate a rgb color
     if (!planet.classList.contains('sun')){
     planet.style.cursor = "pointer";
     let r= (Math.floor(Math.random() * 255));
