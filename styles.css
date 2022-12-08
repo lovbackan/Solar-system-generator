@@ -1,0 +1,248 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+header {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0;
+    height: 3rem;
+    width: 100%;
+    background-color: aliceblue;
+    z-index: 1000;
+}
+body {
+    /* overflow: hidden; */
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: center;
+    background-color: black;
+    
+}
+
+h3,p {
+    color: white;
+}
+
+
+
+
+
+.solarSystem.active {
+    display: flex;
+}
+.solarSystem {
+    display: none;
+    width: 30rem;
+    height: 30rem;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.planetCard.active {
+    display: flex;
+}
+.planetCard {
+    display: none;
+    width: 23rem;
+    height: 35rem;
+    border: 1px solid white;
+    margin-top: 3.5rem;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.planetCardPictureContainer {
+    width: 22.2rem;
+    height: 23rem;
+    border: 1px solid white;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.planetCardPicture {
+    /* width: 100%;
+    height: 100%; */
+    width: 23rem;
+    height: 20rem;
+    /* border: 1px solid white;
+    border-radius: 100%; */
+    /* transform: scale(0.5); */
+    margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.planetCardPicture.active{
+    width: 20rem;
+    height: 20rem;
+    border: 1px solid white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+}
+
+.planetCardInfo {
+    height: 12rem;
+    width: 23rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.planetInfo {
+    height: 5rem;
+    width: 10.5rem;
+    border: 1px solid white;
+}
+
+.planet {
+    width:5%;
+    height: 5%;
+    position: absolute;
+    border-radius: 100%;
+}
+
+.trajectory {
+    border: 1px dotted white;
+    border-radius: 100%;
+}
+
+
+
+
+
+#seventhTrajectory {
+    /* width:40rem;
+    height:40rem; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(0deg);
+	transition: transform 60s linear;
+}
+
+#seventhPlanet {
+    margin-right: 100%;
+    transform: rotate(0deg);
+	transition: transform 60s linear;
+}
+
+#sixthTrajectory {
+    /* width: 35rem;
+    height: 35rem; */
+    width: 87%;
+    height: 87%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sixthPlanet {
+    margin-top: 87%;
+}
+
+#fifthTrajectory {
+    width: 87%;
+    height: 87%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fifthPlanet {
+    margin-left: 75%;
+}
+
+#fourthTrajectory {
+    width: 84%;
+    height: 84%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fourthPlanet {
+    margin-bottom: 63%;
+}
+
+#thirdTrajectory {
+    width: 79%;
+    height: 79%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#thirdPlanet {
+    margin-right: 50%;
+}
+
+#secondTrajectory {
+    width: 74%;
+    height: 74%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#secondPlanet {
+    margin-left: 37%;
+}
+
+#firstTrajectory {
+    width: 69%;
+    height: 69%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#firstPlanet {
+    margin-top: 26%;
+}
+
+#sun {
+    width: 15%;
+    height: 15%;
+    background-color: orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
