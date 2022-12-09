@@ -1,3 +1,10 @@
+// Att göra: 1. lägg in info som är kul att få se om varje planet och galax. galax -> ligger den i en habitable zone om den gör det så kanske planeterna har en viss livsform aktiv av något slag. 
+
+//Planet -> finns vatten, vad har den för resources. Size = jämfört jorden . Vilken temepratur.
+//Sol -> vad för temperatur. 
+//
+
+
 const trajButton = document.querySelector("#trajectoryButton")
 const seventhTraj = document.querySelector("#seventhTrajectory");
 const seventhPlan = document.querySelector("#seventhPlanet");
@@ -41,13 +48,46 @@ let planetNames = [
     "Dars 9OX",
 ];
 
-let galaxyNames = ["cool Galaxy", "bad galaxy", "good galaxy"];
+let galaxyNames = ["The Duerebus Hedopia System",
+ "Wanule Remgania Sector",
+"Tagchia Ozelialia System",
+"Ladoros System",
+"Durvana Sector",
+"The Xe'elialia System",
+"The Delta Kepeaux Pulsar System",
+"The Deeponine Vicinity",
+"Ladvis Aerdania System",
+"The Deepoid Space",
+"The Zedumi Expanse",
+"The Tau Vultus System",
+"The Omicron Talmeko Cluster",
+"Libra Halo Zone",
+"The Janangalia Territory",
+"The Vakopia S'chia Region",
+"The Daal System",
+"The Major Trelius Sector",
+"The Ur'an Spiral",
+"The Copernicus Nebula",
+"The Epsilon Outurn Star System",
+"The Super Merangolia Belt",
+"The Deeplak Expanse",
+"Logatis System",
+"Los Cuva 111 System",
+"Huygens Coronal Stream",
+"The Super Sunarth Vortex",
+"Epsilon Taronia Expanse",
+"Guntatoid Coronal Stream",
+"The Ataridian Xe'adon Vicinity",
+];
+
 let galaxyName;
 
 
 
 //On click start animation (only works once tho);
 trajButton.addEventListener("click", () => {
+
+    //gör en ny klass som har detta i sig och toggla på click;
     seventhTraj.style.transform = "rotate(360deg)";
     seventhPlan.style.transform = "rotate(-360deg)";
     
