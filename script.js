@@ -2,7 +2,7 @@
 
 //Planet -> finns vatten, vad har den för resources. Size = jämfört jorden . Vilken temepratur.
 //Sol -> vad för temperatur. 
-//
+//Hitta svg med textur lägg på planet.
 
 
 const trajButton = document.querySelector("#trajectoryButton")
