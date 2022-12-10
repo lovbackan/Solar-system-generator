@@ -1,4 +1,5 @@
 // Att göra: 1. lägg in info som är kul att få se om varje planet och galax. galax -> ligger den i en habitable zone om den gör det så kanske planeterna har en viss livsform aktiv av något slag. 
+//2 Gör så att viss divar i solarsystem blir av togglade när man trycker på generatebutton
 
 //Planet -> finns vatten, vad har den för resources. Size = jämfört jorden . Vilken temepratur.
 //Sol -> vad för temperatur. 
@@ -16,7 +17,9 @@ const generationButton = document.querySelector("#generateSolarSystem");
 const planetCard = document.querySelector(".planetCard");
 const sun = document.querySelector("#sun");
 const planetName = document.querySelector("#planetNameContainer p");
-let planetNames = [
+const territoryName = document.querySelector("#territoryName p");
+
+const planetNames = [
     "Vucuilara",
     "Zaphogawa",
     "Hiphov",
@@ -48,7 +51,7 @@ let planetNames = [
     "Dars 9OX",
 ];
 
-let galaxyNames = ["The Duerebus Hedopia System",
+const galaxyNames = ["The Duerebus Hedopia System",
  "Wanule Remgania Sector",
 "Tagchia Ozelialia System",
 "Ladoros System",
@@ -82,6 +85,19 @@ let galaxyNames = ["The Duerebus Hedopia System",
 
 let galaxyName;
 
+const lifeKingdoms = [
+    "Bacteria",
+    "Archaea",
+    "Protoza",
+    "Chromista",
+    "Plantea",
+    "Fungi",
+    "Animalia",];
+
+const countryList = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+
+
+let systemCountries = [];
 
 
 //On click start animation (only works once tho);
@@ -98,7 +114,23 @@ generationButton.addEventListener("click", () =>{
     const randomGalaxyIndex = Math.floor(Math.random() * galaxyNames.length);
     galaxyName = galaxyNames[randomGalaxyIndex];
     planetName.innerText = galaxyName;
+
+    //randomizes terriortyNames 
+
+    systemCountries = [];
+
+
+    for (let i= 0; i < planets.length; i++) {
+        const randomCountryIndex = Math.floor(Math.random() * countryList.length);
+        const countryName = countryList[randomCountryIndex];
+        systemCountries.push(countryName);
+    }
+
+
+
+    territoryName.innerText = systemCountries.toString();
     //If solarsystem and planetCard are not active then activate them
+
     if (!solarSystem.classList.contains('active')){
     solarSystem.classList.toggle("active");
     planetCard.classList.toggle("active");
@@ -118,6 +150,8 @@ planetCardPictureContainer.addEventListener('click', () => {
 
         //bugg där den matar in samma namn som den första gången man generade galax 
         planetName.innerText = galaxyName;
+        territoryName.innerText = systemCountries.toString();
+
 
     };
 });
@@ -137,9 +171,13 @@ planet.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')' ;
 
 
 //Randomizes a planet name and removes it from the planetNames array.
-const randomNameIndex = Math.floor(Math.random() * planetNames.length);
-const name = planetNames[randomNameIndex];
+const randomPlanetNameIndex = Math.floor(Math.random() * planetNames.length);
+const name = planetNames[randomPlanetNameIndex];
 planetNames.splice(planetNames.indexOf(name), 1);
+
+//randomizes a territory name for each planet from the array systemCountries
+
+const planetNation = systemCountries[index];
 
 
 planet.addEventListener('mouseover', () => {
@@ -167,7 +205,9 @@ planet.addEventListener('click', () => {
     };
     planetPicture.innerHTML = planet.innerHTML;
     planetPicture.style.backgroundColor = planet.style.backgroundColor;
-    planetName.innerText = name; 
+    planetName.innerText = name;
+    territoryName.innerText = planetNation;
+
 });
 
 
