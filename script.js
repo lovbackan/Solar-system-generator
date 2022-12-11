@@ -76,10 +76,11 @@ function scrollRotate() {
 
 
 generationButton.addEventListener("click", () =>{
-    //Randomizes a galaxy name
+    //Randomizes a galaxy name and removes the name from the array
     const randomGalaxyIndex = Math.floor(Math.random() * galaxyNames.length);
     galaxyName = galaxyNames[randomGalaxyIndex];
     planetName.innerText = galaxyName;
+    galaxyNames.splice(galaxyNames.indexOf(galaxyName), 1);
 
 //The following arrays restores on eachclick the previous generated values.
     systemCountries = [];
@@ -109,8 +110,6 @@ generationButton.addEventListener("click", () =>{
     territoryName.innerText = systemCountriesList.toString();
     resourceName.innerText = systemResourcesList.toString();
     lifeFormName.innerText = systemLifeFormsList.toString();
-    
-    console.log(systemCountries);
 
     //If solarsystem and planetCard are not active then activate them
 
