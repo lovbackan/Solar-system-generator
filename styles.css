@@ -1,12 +1,22 @@
 
+@font-face {
+    font-family: "nasalization";
+    src: url("fonts/nasalization/nasalization-rg.woff") format('woff');
+  }
+
+  @font-face {
+    font-family: "nasalization";
+    src: url("fonts/nasalization/nasalization-rg.woff") format('woff2');
+  }
 * {
     margin: 0px;
     padding: 0px;
 }
+
 header {
     position: absolute;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     top: 0;
     height: 3rem;
     width: 100%;
@@ -25,7 +35,7 @@ body {
 }
 
 h1 {
-    font-size: large;
+    font-family: nasalization;
 }
 
 h2,h3,p {
