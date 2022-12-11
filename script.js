@@ -17,14 +17,14 @@ const generationButton = document.querySelector("#generateSolarSystem");
 const planetCard = document.querySelector(".planetCard");
 const sun = document.querySelector("#sun");
 const planetName = document.querySelector("#planetNameContainer h2");
-console.log(planetName);
 const territoryName = document.querySelector("#territoryName p");
 const resourceName = document.querySelector("#resources p");
 const lifeFormName = document.querySelector("#lifeForms p");
 
 const planetNames = [
-"Vucuilara","Zaphogawa","Hiphov","Halrora","Doter","Chaevis",
-"Lodunus","Vomia FOZ","Vao F3","Culreorilia","Xicrieter","Onkilles","Leccore","Kaorilia","Thouter","Craelea","Cruzilia","Gorth 2Z","Cadus 8G","Kicoigantu","Zimunides","Banninda","Golnov","Keunerth","Totera","Sinastea","Craiturn","Briuq 3PHU","Dars 9OX",];
+"Vucuilara","Zaphogawa","Halrora","Doter","Chaevis",
+"Lodunus","Vomia FOZ","Vao F3","Culreorilia","Xicrieter","Onkilles","Leccore","Kaorilia","Thouter","Craelea","Cruzilia","Gorth 2Z","Cadus 8G","Kicoigantu","Zimunides","Banninda","Golnov","Keunerth","Totera","Sinastea","Craiturn","Briuq 3PHU","Dars 9OX","Dozoapra","Mennagawa","Zolnarth","Nebbilia","Holea","Oihiri","Cerotania","Grumalara","Badus 5X","Zion NKK","Esuiturn","Etheiliv","Lollone","Lenrolla","Gieliv","Oatera","Phubaphus","Nipiria","Bradus 22LW","Gnore V","Alunus","Dedrunerth","Ulmyke","Xatrinda","Astea","Erilia","Gnapobos","Gripipra","Droria C4","Droria C4","Barvis I2Z2","Xathorilia","Chodulara","Xilrara","Chatrion","Eucury","Puegantu","Sibuter","Chuxerus","Gion 37","Drars C7",];
+
 
 const galaxyNames = ["The Duerebus Hedopia System", "Wanule Remgania Sector","Tagchia Ozelialia System","Ladoros System","Durvana Sector","The Xe'elialia System","The Delta Kepeaux Pulsar System","The Deeponine Vicinity","Ladvis Aerdania System","The Deepoid Space","The Zedumi Expanse","The Tau Vultus System","The Omicron Talmeko Cluster","Libra Halo Zone","The Janangalia Territory","The Vakopia S'chia Region","The Daal System","The Major Trelius Sector","The Ur'an Spiral","The Copernicus Nebula","The Epsilon Outurn Star System","The Super Merangolia Belt","The Deeplak Expanse","Logatis System","Los Cuva 111 System","Huygens Coronal Stream","The Super Sunarth Vortex","Epsilon Taronia Expanse","Guntatoid Coronal Stream","The Ataridian Xe'adon Vicinity",];
 
@@ -47,6 +47,8 @@ const elements =[
 
 
 let systemResources = [];
+
+//These 3 are created to get the array to become a string where there is a newline after each item (important for the galaxy info display)
 let systemCountriesList = [];
 let systemResourcesList = [];
 let systemLifeFormsList = [];
@@ -67,7 +69,7 @@ generationButton.addEventListener("click", () =>{
     galaxyName = galaxyNames[randomGalaxyIndex];
     planetName.innerText = galaxyName;
 
-
+//The following arrays restores on eachclick the previous generated values.
     systemCountries = [];
     systemResources = [];
     systemLifeForms = [];
@@ -76,7 +78,7 @@ generationButton.addEventListener("click", () =>{
     systemLifeFormsList = [];
 
 
-    for (let i= 0; i < 7; i++) {
+    for (let i= 0; i < planets.length-1; i++) {
         const randomCountryIndex = Math.floor(Math.random() * countryList.length);
         const countryName = countryList[randomCountryIndex];
         systemCountries.push(countryName);
