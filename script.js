@@ -63,6 +63,18 @@ trajButton.addEventListener("click", () => {
     
 })
 
+window.onscroll = function () {
+    scrollRotate();
+};
+
+function scrollRotate() {
+    // seventhTraj.style.transform = "rotate(" + window.pageYOffset/2 + "deg)";
+    // seventhPlan.style.transform = "rotate(" + window.pageYOffset/-2 + "deg)";
+    seventhTraj.style.transform = "rotate(360deg)";
+    seventhPlan.style.transform = "rotate(-360deg)";
+}
+
+
 generationButton.addEventListener("click", () =>{
     //Randomizes a galaxy name
     const randomGalaxyIndex = Math.floor(Math.random() * galaxyNames.length);
