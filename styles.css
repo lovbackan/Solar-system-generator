@@ -126,7 +126,7 @@ h3,p {
 }
 
 .trajectory {
-    border: 1px dotted white;
+    border: 2px dotted white;
     border-radius: 100%;
 }
 
@@ -147,7 +147,7 @@ h3,p {
 }
 
 #seventhPlanet {
-    margin-right: 100%;
+    margin-top: 100%;
     transform: rotate(0deg);
 	transition: transform 60s linear;
 }
@@ -163,7 +163,7 @@ h3,p {
 }
 
 #sixthPlanet {
-    margin-top: 87%;
+    margin-bottom: 87%;
 }
 
 #fifthTrajectory {
@@ -175,7 +175,8 @@ h3,p {
 }
 
 #fifthPlanet {
-    margin-left: 75%;
+    margin-left: 66%;
+    margin-top: 40%;
 }
 
 #fourthTrajectory {
@@ -187,7 +188,7 @@ h3,p {
 }
 
 #fourthPlanet {
-    margin-bottom: 63%;
+    margin-right: 63%;
 }
 
 #thirdTrajectory {
@@ -200,7 +201,8 @@ h3,p {
 
 
 #thirdPlanet {
-    margin-right: 50%;
+    margin-top: 45%;
+    margin-right: 25%;
 }
 
 #secondTrajectory {
@@ -224,13 +226,13 @@ h3,p {
 }
 
 #firstPlanet {
-    margin-top: 26%;
+    margin-bottom: 24%;
+    margin-right: 10%;
 }
 
 #sun {
     width: 15%;
     height: 15%;
-    background-color: orange;
 }
 
 
