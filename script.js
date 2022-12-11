@@ -18,6 +18,8 @@ const planetCard = document.querySelector(".planetCard");
 const sun = document.querySelector("#sun");
 const planetName = document.querySelector("#planetNameContainer p");
 const territoryName = document.querySelector("#territoryName p");
+const resourceName = document.querySelector("#resources p");
+const lifeFormName = document.querySelector("#lifeForms p");
 
 const planetNames = [
     "Vucuilara",
@@ -86,13 +88,38 @@ const galaxyNames = ["The Duerebus Hedopia System",
 let galaxyName;
 
 const lifeKingdoms = [
-    "Bacteria",
-    "Archaea",
-    "Protoza",
-    "Chromista",
-    "Plantea",
-    "Fungi",
-    "Animalia",];
+    "Monera: Archaebacteria",
+    "Monera: Eubacteria",
+    "Protista: Green algae",
+    "Protista: Brown algae",
+    "Protista: Red algae",
+    "Protista: Ciliated protozoa",
+    "Protista: Flageliated protozoa",
+    "Protista: Amoeboid protozoa",
+    "Fungi: Ascomycetes",
+    "Fungi: Basidiomycetes",
+    "Plant: Equiseta",
+    "Plant: Lycopodia",
+    "Plant: Gymnosperms",
+    "Plant: Angiosperms",
+    "Plant: Ferns",
+    "Plant: Mosses",
+    "Animal: Porifera",
+    "Animal: Cnidaria",
+    "Animal: Platyhelminthes",
+    "Animal: Molluscs",
+    "Animal: Annelids",
+    "Animal: Echinoderms",
+    "Animal: Insects",
+    "Animal: Crustaceans",
+    "Animal: Arachnids",
+    "Animal: Fish",
+    "Animal: Amphibians",
+    "Animal: Birds",
+    "Animal: Reptiles",
+    "Animal: Mammals",];
+
+let systemLifeForms = [];
 
 const countryList = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
 
@@ -100,10 +127,15 @@ const countryList = ["Afghanistan","Albania","Algeria","Andorra","Angola","Angui
 let systemCountries = [];
 
 
-//On click start animation (only works once tho);
+const elements =["Hydrogen","Helium","Lithium","Beryllium","Boron","Carbon","Nitrogen","Oxygen","Fluorine","Neon","Sodium","Magnesium","Aluminum","Silicon","Phosphorus","Sulfur","Chlorine","Argon","Potassium","Calcium","Scandium","Titanium","Vanadium","Chromium","Manganese","Iron","Cobalt","Nickel","Copper","Zinc","Gallium","Germanium","Arsenic","Selenium","Bromine","Krypton","Rubidium","Strontium","Yttrium","Zirconium","Niobium","Molybdenum","Technetium","Ruthenium","Rhodium","Palladium","Silver","Cadmium","Indium","Tin","Antimony","Tellurium","Iodine","Xenon","Cesium","Barium","Lanthanum","Cerium","Praseodymium","Neodymium","Promethium","Samarium","Europium","Gadolinium","Terbium","Dysprosium","Holmium","Erbium","Thulium","Ytterbium","Lutetium","Hafnium","Tantalum","Tungsten","Rhenium","Osmium","Iridium","Platinum","Gold","Mercury","Thallium","Lead","Bismuth","Polonium","Astatine","Radon","Francium","Radium","Actinium","Thorium","Protactinium","Uranium","Neptunium","Plutonium","Americium","Curium","Berkelium","Californium","Einsteinium","Fermium","Mendelevium","Nobelium","Lawrencium","Rutherfordium","Dubnium","Seaborgium","Bohrium","Hassium","Meitnerium"];
+
+
+let systemResources = [];
+
+
+//On click start animation (BUGG -only works once tho);
 trajButton.addEventListener("click", () => {
 
-    //gör en ny klass som har detta i sig och toggla på click;
     seventhTraj.style.transform = "rotate(360deg)";
     seventhPlan.style.transform = "rotate(-360deg)";
     
@@ -115,20 +147,28 @@ generationButton.addEventListener("click", () =>{
     galaxyName = galaxyNames[randomGalaxyIndex];
     planetName.innerText = galaxyName;
 
-    //randomizes terriortyNames 
 
     systemCountries = [];
+    systemResources = [];
+    systemLifeForms = [];
 
 
-    for (let i= 0; i < planets.length; i++) {
+    for (let i= 0; i < 7; i++) {
         const randomCountryIndex = Math.floor(Math.random() * countryList.length);
         const countryName = countryList[randomCountryIndex];
         systemCountries.push(countryName);
+        const randomResourceIndex = Math.floor(Math.random() * elements.length);
+        const resources = elements[randomResourceIndex];
+        systemResources.push(resources);
+        const randomLifeformsIndex = Math.floor(Math.random() * lifeKingdoms.length);
+        const life = lifeKingdoms[randomLifeformsIndex];
+        systemLifeForms.push(life);
     }
 
-
-
     territoryName.innerText = systemCountries.toString();
+    resourceName.innerText = systemResources.toString();
+    lifeFormName.innerText = systemLifeForms.toString();
+
     //If solarsystem and planetCard are not active then activate them
 
     if (!solarSystem.classList.contains('active')){
@@ -151,24 +191,14 @@ planetCardPictureContainer.addEventListener('click', () => {
         //bugg där den matar in samma namn som den första gången man generade galax 
         planetName.innerText = galaxyName;
         territoryName.innerText = systemCountries.toString();
+        resourceName.innerText = systemResources.toString();
+        lifeFormName.innerText = systemLifeForms.toString();
 
 
     };
 });
 
 planets.forEach((planet, index) => {
-//For every planet that is not the sun generate a rgb color
-    if (!planet.classList.contains('sun')){
-    planet.style.cursor = "pointer";
-    let r= (Math.floor(Math.random() * 255));
-    let g = (Math.floor(Math.random() * 255));
-    let b= (Math.floor(Math.random() * 255));
-planet.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')' ;
-} else {
-    // The sun shall always remain orange
-    planet.style.backgroundColor = "orange";
-};
-
 
 //Randomizes a planet name and removes it from the planetNames array.
 const randomPlanetNameIndex = Math.floor(Math.random() * planetNames.length);
@@ -178,6 +208,24 @@ planetNames.splice(planetNames.indexOf(name), 1);
 //randomizes a territory name for each planet from the array systemCountries
 
 const planetNation = systemCountries[index];
+let planetResource = [];
+let planetLifeForm = [];
+
+
+//For every planet that is not the sun generate a rgb color
+    if (!planet.classList.contains('sun')){
+    planet.style.cursor = "pointer";
+    let r= (Math.floor(Math.random() * 255));
+    let g = (Math.floor(Math.random() * 255));
+    let b= (Math.floor(Math.random() * 255));
+    planetResource = systemResources[index];
+    planetLifeForm = systemLifeForms[index];
+planet.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')' ;
+} else {
+    // The sun shall always remain orange
+    planet.style.backgroundColor = "orange";
+
+};
 
 
 planet.addEventListener('mouseover', () => {
@@ -207,6 +255,17 @@ planet.addEventListener('click', () => {
     planetPicture.style.backgroundColor = planet.style.backgroundColor;
     planetName.innerText = name;
     territoryName.innerText = planetNation;
+    resourceName.innerText = planetResource;
+    lifeFormName.innerText = planetLifeForm;
+
+    if (planet.classList.contains('sun')){
+        resourceName.innerText = "Light, Heat, Energy";
+        territoryName.innerText = "Since 1967 The Outer Space Treaty has prevented that no soverign nation can own celestial bodies like Moons or Suns";
+        lifeFormName.innerText = "Suns can not harbor life as we know it because of its extreme temperatures and radiation. Yet life on planets is only possible because of the Sun's light and energy.";
+
+
+    };
+
 
 });
 
