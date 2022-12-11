@@ -16,121 +16,41 @@ const solarSystem = document.querySelector(".solarSystem");
 const generationButton = document.querySelector("#generateSolarSystem");
 const planetCard = document.querySelector(".planetCard");
 const sun = document.querySelector("#sun");
-const planetName = document.querySelector("#planetNameContainer p");
+const planetName = document.querySelector("#planetNameContainer h2");
+console.log(planetName);
 const territoryName = document.querySelector("#territoryName p");
 const resourceName = document.querySelector("#resources p");
 const lifeFormName = document.querySelector("#lifeForms p");
 
 const planetNames = [
-    "Vucuilara",
-    "Zaphogawa",
-    "Hiphov",
-    "Halrora",
-    "Doter",
-    "Chaevis", 
-    "Lodunus", 
-    "Vomia FOZ",
-    "Vao F3",
-    "Culreorilia",
-    "Xicrieter",
-    "Onkilles",
-    "Leccore",
-    "Kaorilia",
-    "Thouter",
-    "Craelea",
-    "Cruzilia",
-    "Gorth 2Z",
-    "Cadus 8G",
-    "Kicoigantu",
-    "Zimunides",
-    "Banninda",
-    "Golnov",
-    "Keunerth",
-    "Totera",
-    "Sinastea",
-    "Craiturn",
-    "Briuq 3PHU",
-    "Dars 9OX",
-];
+"Vucuilara","Zaphogawa","Hiphov","Halrora","Doter","Chaevis",
+"Lodunus","Vomia FOZ","Vao F3","Culreorilia","Xicrieter","Onkilles","Leccore","Kaorilia","Thouter","Craelea","Cruzilia","Gorth 2Z","Cadus 8G","Kicoigantu","Zimunides","Banninda","Golnov","Keunerth","Totera","Sinastea","Craiturn","Briuq 3PHU","Dars 9OX",];
 
-const galaxyNames = ["The Duerebus Hedopia System",
- "Wanule Remgania Sector",
-"Tagchia Ozelialia System",
-"Ladoros System",
-"Durvana Sector",
-"The Xe'elialia System",
-"The Delta Kepeaux Pulsar System",
-"The Deeponine Vicinity",
-"Ladvis Aerdania System",
-"The Deepoid Space",
-"The Zedumi Expanse",
-"The Tau Vultus System",
-"The Omicron Talmeko Cluster",
-"Libra Halo Zone",
-"The Janangalia Territory",
-"The Vakopia S'chia Region",
-"The Daal System",
-"The Major Trelius Sector",
-"The Ur'an Spiral",
-"The Copernicus Nebula",
-"The Epsilon Outurn Star System",
-"The Super Merangolia Belt",
-"The Deeplak Expanse",
-"Logatis System",
-"Los Cuva 111 System",
-"Huygens Coronal Stream",
-"The Super Sunarth Vortex",
-"Epsilon Taronia Expanse",
-"Guntatoid Coronal Stream",
-"The Ataridian Xe'adon Vicinity",
-];
+const galaxyNames = ["The Duerebus Hedopia System", "Wanule Remgania Sector","Tagchia Ozelialia System","Ladoros System","Durvana Sector","The Xe'elialia System","The Delta Kepeaux Pulsar System","The Deeponine Vicinity","Ladvis Aerdania System","The Deepoid Space","The Zedumi Expanse","The Tau Vultus System","The Omicron Talmeko Cluster","Libra Halo Zone","The Janangalia Territory","The Vakopia S'chia Region","The Daal System","The Major Trelius Sector","The Ur'an Spiral","The Copernicus Nebula","The Epsilon Outurn Star System","The Super Merangolia Belt","The Deeplak Expanse","Logatis System","Los Cuva 111 System","Huygens Coronal Stream","The Super Sunarth Vortex","Epsilon Taronia Expanse","Guntatoid Coronal Stream","The Ataridian Xe'adon Vicinity",];
 
 let galaxyName;
 
 const lifeKingdoms = [
-    "Monera: Archaebacteria",
-    "Monera: Eubacteria",
-    "Protista: Green algae",
-    "Protista: Brown algae",
-    "Protista: Red algae",
-    "Protista: Ciliated protozoa",
-    "Protista: Flageliated protozoa",
-    "Protista: Amoeboid protozoa",
-    "Fungi: Ascomycetes",
-    "Fungi: Basidiomycetes",
-    "Plant: Equiseta",
-    "Plant: Lycopodia",
-    "Plant: Gymnosperms",
-    "Plant: Angiosperms",
-    "Plant: Ferns",
-    "Plant: Mosses",
-    "Animal: Porifera",
-    "Animal: Cnidaria",
-    "Animal: Platyhelminthes",
-    "Animal: Molluscs",
-    "Animal: Annelids",
-    "Animal: Echinoderms",
-    "Animal: Insects",
-    "Animal: Crustaceans",
-    "Animal: Arachnids",
-    "Animal: Fish",
-    "Animal: Amphibians",
-    "Animal: Birds",
-    "Animal: Reptiles",
-    "Animal: Mammals",];
+"Archaebacteria","Eubacteria","Green algae","Brown algae","Red algae","Ciliated protozoa","Flageliated protozoa","Amoeboid protozoa","Ascomycetes","Basidiomycetes","Equiseta","Lycopodia","Gymnosperms","Angiosperms","Ferns","Mosses","Porifera","Cnidaria","Platyhelminthes","Molluscs","Annelids","Echinoderms","Insects","Crustaceans","Arachnids","Fish","Amphibians","Birds","Reptiles","Mammals",];
 
 let systemLifeForms = [];
 
-const countryList = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+const countryList = [
+"Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
 
 
 let systemCountries = [];
 
 
-const elements =["Hydrogen","Helium","Lithium","Beryllium","Boron","Carbon","Nitrogen","Oxygen","Fluorine","Neon","Sodium","Magnesium","Aluminum","Silicon","Phosphorus","Sulfur","Chlorine","Argon","Potassium","Calcium","Scandium","Titanium","Vanadium","Chromium","Manganese","Iron","Cobalt","Nickel","Copper","Zinc","Gallium","Germanium","Arsenic","Selenium","Bromine","Krypton","Rubidium","Strontium","Yttrium","Zirconium","Niobium","Molybdenum","Technetium","Ruthenium","Rhodium","Palladium","Silver","Cadmium","Indium","Tin","Antimony","Tellurium","Iodine","Xenon","Cesium","Barium","Lanthanum","Cerium","Praseodymium","Neodymium","Promethium","Samarium","Europium","Gadolinium","Terbium","Dysprosium","Holmium","Erbium","Thulium","Ytterbium","Lutetium","Hafnium","Tantalum","Tungsten","Rhenium","Osmium","Iridium","Platinum","Gold","Mercury","Thallium","Lead","Bismuth","Polonium","Astatine","Radon","Francium","Radium","Actinium","Thorium","Protactinium","Uranium","Neptunium","Plutonium","Americium","Curium","Berkelium","Californium","Einsteinium","Fermium","Mendelevium","Nobelium","Lawrencium","Rutherfordium","Dubnium","Seaborgium","Bohrium","Hassium","Meitnerium"];
+const elements =[
+"Hydrogen","Helium","Lithium","Beryllium","Boron","Carbon","Nitrogen","Oxygen","Fluorine","Neon","Sodium","Magnesium","Aluminum","Silicon","Phosphorus","Sulfur","Chlorine","Argon","Potassium","Calcium","Scandium","Titanium","Vanadium","Chromium","Manganese","Iron","Cobalt","Nickel","Copper","Zinc","Gallium","Germanium","Arsenic","Selenium","Bromine","Krypton","Rubidium","Strontium","Yttrium","Zirconium","Niobium","Molybdenum","Technetium","Ruthenium","Rhodium","Palladium","Silver","Cadmium","Indium","Tin","Antimony","Tellurium","Iodine","Xenon","Cesium","Barium","Lanthanum","Cerium","Praseodymium","Neodymium","Promethium","Samarium","Europium","Gadolinium","Terbium","Dysprosium","Holmium","Erbium","Thulium","Ytterbium","Lutetium","Hafnium","Tantalum","Tungsten","Rhenium","Osmium","Iridium","Platinum","Gold","Mercury","Thallium","Lead","Bismuth","Polonium","Astatine","Radon","Francium","Radium","Actinium","Thorium","Protactinium","Uranium","Neptunium","Plutonium","Americium","Curium","Berkelium","Californium","Einsteinium","Fermium","Mendelevium","Nobelium","Lawrencium","Rutherfordium","Dubnium","Seaborgium","Bohrium","Hassium","Meitnerium"];
 
 
 let systemResources = [];
+let systemCountriesList = [];
+let systemResourcesList = [];
+let systemLifeFormsList = [];
+
 
 
 //On click start animation (BUGG -only works once tho);
@@ -151,6 +71,9 @@ generationButton.addEventListener("click", () =>{
     systemCountries = [];
     systemResources = [];
     systemLifeForms = [];
+    systemCountriesList = [];
+    systemResourcesList = [];
+    systemLifeFormsList = [];
 
 
     for (let i= 0; i < 7; i++) {
@@ -165,11 +88,18 @@ generationButton.addEventListener("click", () =>{
         systemLifeForms.push(life);
     }
 
-    territoryName.innerText = systemCountries.toString();
-    resourceName.innerText = systemResources.toString();
-    lifeFormName.innerText = systemLifeForms.toString();
+    systemCountriesList = systemCountries.join(',\n');
+    systemResourcesList = systemResources.join(',\n');
+    systemLifeFormsList = systemLifeForms.join(',\n');
+
+    territoryName.innerText = systemCountriesList.toString();
+    resourceName.innerText = systemResourcesList.toString();
+    lifeFormName.innerText = systemLifeFormsList.toString();
+    
+    console.log(systemCountries);
 
     //If solarsystem and planetCard are not active then activate them
+
 
     if (!solarSystem.classList.contains('active')){
     solarSystem.classList.toggle("active");
@@ -187,12 +117,10 @@ planetCardPictureContainer.addEventListener('click', () => {
         planetCardPictureContainer.style.cursor = "default";
         planetPicture.innerHTML = solarSystem.innerHTML;
         planetPicture.style.backgroundColor = "black";
-
-        //bugg där den matar in samma namn som den första gången man generade galax 
         planetName.innerText = galaxyName;
-        territoryName.innerText = systemCountries.toString();
-        resourceName.innerText = systemResources.toString();
-        lifeFormName.innerText = systemLifeForms.toString();
+        territoryName.innerText = systemCountriesList.toString();
+        resourceName.innerText = systemResourcesList.toString();
+        lifeFormName.innerText = systemLifeFormsList.toString();
 
 
     };
@@ -272,16 +200,3 @@ planet.addEventListener('click', () => {
 
 })
 } );
-
-
-// let chosenPlanet;
-
-//     let pickPlanet = () => {
-
-//         planet.addEventListener('click', () => {
-//             chosenPlanet = planet;
-//             console.log(chosenPlanet);
-//             pickPlanet();
-//         });
-    
-//     };
